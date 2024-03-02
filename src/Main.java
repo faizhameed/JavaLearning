@@ -13,7 +13,7 @@ public class Main {
         displayHighScorePosition("Walter", highScorePosition);
         highScorePosition = CalculateHighScorePosition(450);
         displayHighScorePosition("Bob", highScorePosition);
-        highScorePosition = CalculateHighScorePosition(050);
+        highScorePosition = CalculateHighScorePosition(50);
         displayHighScorePosition("Gig", highScorePosition);
 
     }
