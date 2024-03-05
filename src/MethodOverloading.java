@@ -8,7 +8,7 @@ public class MethodOverloading {
         return  a * b;
     }
     public static void calculateScore(int a){
-        System.out.println("need one more params");
+        System.out.println("need one more params "+ a);
     }
     public static int calculateScore (int a, int b, int c){
         return  calculateScore(a,b) * c;
