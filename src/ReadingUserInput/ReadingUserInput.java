@@ -21,6 +21,8 @@ public class ReadingUserInput {
     }
 
     public static String getInputFromScanner(int currentYear) {
+        boolean isValidDOB = false;
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Hi Whats your name? ");
@@ -28,9 +30,29 @@ public class ReadingUserInput {
 
         System.out.println("Hi " + name + ", Thanks for meeting me!");
 
-        System.out.println("What year were you born? ");
-        String dateOfBirth = scanner.nextLine();
-        int age = currentYear - Integer.parseInt(dateOfBirth);
+        int age = 0;
+        do {
+            System.out.println("What year were you born? ");
+            String dateOfBirth = scanner.nextLine();
+            age = checkData(currentYear, dateOfBirth);
+            isValidDOB = age >= 0;
+            if (!isValidDOB)
+                System.out.println("Doesn't appear to be a normal valid year of birth! Please enter again.");
+        } while (!isValidDOB);
         return "So you are " + age + " years old";
+    }
+
+    public static int checkData(int currentYear, String dateOfBirth) {
+        try {
+            int dob = Integer.parseInt(dateOfBirth);
+            int minimumYear = currentYear - 125;
+            if ((dob < minimumYear) || (dob > currentYear)) return -1;
+
+            return currentYear - dob;
+
+        } catch (Exception e) {
+            System.out.println("Its looks like you have entered characters that are not numbers!!!");
+            return -1;
+        }
     }
 }
