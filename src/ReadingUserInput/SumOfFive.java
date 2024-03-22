@@ -38,7 +38,6 @@ public static String getInputFromScanner() {
 
     } while (!isValid || count < 5);
     return "Sum of the five numbers entered: " + sum;
-
 }
 
 }
