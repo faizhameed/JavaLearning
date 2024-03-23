@@ -9,5 +9,13 @@ public class Main {
         car.setMake("Porsche");
         car.setModel("x20");
         car.describeCar();
+
+        Car haya = new Car();
+        haya.setConvertible(true);
+        haya.setColor("green");
+        haya.setDoors(4);
+        haya.setMake("tesla");
+        haya.setModel("T");
+        haya.describeCar();
     }
 }
