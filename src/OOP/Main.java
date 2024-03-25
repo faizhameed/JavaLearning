@@ -7,5 +7,8 @@ public class Main {
 
         Car haya = new Car("BMW","T model","black",5,false);
         haya.describeCar();
+
+        Car defaultCar =  new Car();
+        defaultCar.describeCar();
     }
 }

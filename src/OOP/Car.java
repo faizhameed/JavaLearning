@@ -17,6 +17,12 @@ public class Car {
         this.convertible = convertible;
     }
 
+    // Constructor overloading
+    public Car(){
+        // Constructor Chaining
+        this("Toyota","Camry","black",5,false);
+    }
+
     //    Getters
     public String getModel() {
         return model;
