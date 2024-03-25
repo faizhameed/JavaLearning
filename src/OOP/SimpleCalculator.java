@@ -33,7 +33,6 @@ public class SimpleCalculator {
     }
 
     public double getDivisionResult() {
-
         return secondNumber == 0 ? 0 : firstNumber / secondNumber;
     }
 }
