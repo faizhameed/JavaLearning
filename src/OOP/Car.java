@@ -10,11 +10,11 @@ public class Car {
     private boolean convertible;
 
     public Car(String make, String model, String color, int doors, boolean convertible) {
-        this.make = make;
-        this.model = model;
-        this.color = color;
-        this.doors = doors;
-        this.convertible = convertible;
+        setMake(make);
+        setModel(model);
+        setColor(color);
+        setDoors(doors);
+        setConvertible(convertible);
     }
 
     // Constructor overloading
