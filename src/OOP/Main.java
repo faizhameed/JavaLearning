@@ -4,9 +4,17 @@ public class Main {
     public static void main(String[] args) {
         Car car = new Car("Tesla","x20","green",2,true);
         car.describeCar();
-
+        car.setOwner("Faiz");
+        System.out.println(car.getOwner());
         Car haya = new Car("BMW","T model","black",5,false);
         haya.describeCar();
+
+        // this can change owner of the other Car instance as well
+        haya.setOwner("Haya");
+        System.out.println("Car owners:");
+        System.out.println(haya.getOwner());
+        System.out.println(car.getOwner());// owner has been changes for all;
+
 
         Car defaultCar =  new Car();
         defaultCar.describeCar();

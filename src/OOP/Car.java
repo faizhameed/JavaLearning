@@ -4,7 +4,7 @@ public class Car {
     private String make;
     private String model;
     private String color;
-
+    private static  String owner;
 
     private int doors;
     private boolean convertible;
@@ -15,6 +15,14 @@ public class Car {
         this.color = color;
         this.doors = doors;
         this.convertible = convertible;
+    }
+
+    public static String getOwner() {
+        return owner;
+    }
+
+    public static void setOwner(String owner) {
+        Car.owner = owner;
     }
 
     // Constructor overloading
