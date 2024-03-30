@@ -21,5 +21,8 @@ public class Main {
 
         System.out.println(pojoStudent.getName() + " is Taking " + pojoStudent.getClassList() + " class");
         System.out.println(recordStudent.name() + " is Taking " + recordStudent.classList() + " class");
+
+        pojoStudent.setClassList(pojoStudent.getClassList()+ ", Java learning ");
+//        recordStudent.setClassList(recordStudent.classList()+ ", Java learning "); //record class in java is immutable
     }
 }
