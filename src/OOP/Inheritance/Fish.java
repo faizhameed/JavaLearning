@@ -5,7 +5,7 @@ public class Fish extends Animal {
     private int fins;
 
     public Fish(String type, double weight, int gills, int fins){
-        super(type, "small", weight);
+        super(type, weight < 1 ? "small" : weight < 35 ? "medium" : weight<1000? "large":"huge", weight);
         this.gills =gills;
         this.fins   = fins;
     }
