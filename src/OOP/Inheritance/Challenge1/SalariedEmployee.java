@@ -18,7 +18,14 @@ public class SalariedEmployee extends Employee {
         Date today = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
         String endDate = dateFormat.format(today);
-
+        terminate(endDate);
+        isRetired =true;
+    }
+    @Override
+    public double collectPay(){
+       double paycheck  = annualSalary/26;
+       double adjustedPay = isRetired?0.9 * paycheck:paycheck;
+       return (int) adjustedPay;
     }
 
 
