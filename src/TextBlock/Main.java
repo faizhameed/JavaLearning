@@ -13,5 +13,23 @@ public class Main {
                         \u2022 sub point with a bullet
                  """;
          System.out.println(textBlock);
+
+        int age =25;
+        String name ="faiz";
+        System.out.printf("%s age is %d.\nHe is a great football player" ,name,age);
+
+        int cash =25;
+        System.out.printf("Your in hand cash is %.2f",(float) cash);
+        for(int i =1;i<=100000;i*=10){
+            System.out.printf("Printing %6d %n",i); //6d gives 6 spaces and align to right
+        }
+
+        String formattedString = String.format("Your age is %d",age);
+        System.out.println(formattedString);
+        //Alternate way
+        formattedString  =  "Your age is %d".formatted(age);
+        System.out.println(formattedString);
+
+
     }
 }
