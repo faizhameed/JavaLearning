@@ -9,15 +9,22 @@ public class UsingStringBuilder {
        // string is immutable and string builder is mutable
        printInformation(helloWorld);
        printInformation(helloWorldBuilder);
+
+       StringBuilder emptyStart = new StringBuilder();
+       emptyStart.append("a".repeat(17));// capacity becomes 34 which is automatically increased due to more memory requirement
+       StringBuilder emptyStart1 = new StringBuilder(32);
+       emptyStart1.append("a".repeat(17)); // capacity is already met on initialization so no memory increase is required here.
+       printInformation(emptyStart);
+       printInformation(emptyStart1);
     }
     public static void  printInformation(String string){
         System.out.println("String = " + string );
         System.out.println("Length = "+ string.length() );
-
     }
 
     public static void  printInformation(StringBuilder builder){
         System.out.println("StringBuilder = " + builder );
         System.out.println("Length = "+ builder.length());
+        System.out.println("capacity = " + builder.capacity()) ;
     }
 }
