@@ -1,2 +1,4 @@
 # Java Learning
-Personal learning notes and code
+How to run Java program?
+
+Find the Main file in each mini projects
