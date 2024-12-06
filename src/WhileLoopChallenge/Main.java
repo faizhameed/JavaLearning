@@ -18,7 +18,6 @@ public class Main {
             }else {
                 totalOdd++;
             }
-
             number++;
         }
         System.out.printf("Even Number found : %d \n", totalEven);
