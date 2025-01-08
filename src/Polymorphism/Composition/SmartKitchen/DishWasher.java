@@ -1,4 +1,4 @@
-package Excercises.SmartKitchen;
+package Polymorphism.Composition.SmartKitchen;
 
 public class DishWasher {
     boolean hasWorkToDo = false;

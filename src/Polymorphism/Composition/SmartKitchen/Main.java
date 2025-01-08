@@ -1,4 +1,4 @@
-package Excercises.SmartKitchen;
+package Polymorphism.Composition.SmartKitchen;
 
 public class Main {
     public static void main(String[] args) {
