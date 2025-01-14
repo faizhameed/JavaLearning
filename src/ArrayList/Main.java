@@ -7,6 +7,11 @@ record GroceryItem(String name, String type, int count) {
     GroceryItem(String name) {
         this(name, "diary", 1);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d %s in %s", count,name.toUpperCase(),type);
+    }
 }
 
 public class Main {
@@ -27,7 +32,17 @@ public class Main {
 
         ArrayList<GroceryItem> groceryList = new ArrayList<>();//<> diamond operator
         groceryList.add(sample);
-//        groceryList.add("Yogurt"); // cannot add as it's not the required type;
+        // GroceryList.add("Yogurt"); // cannot add as it's not the required type;
+        groceryList.add(new GroceryItem("peas"));
+        groceryList.add(new GroceryItem("carrot","veg",10));
+        //add at index
+        groceryList.add(1,new GroceryItem("curd"));
+        // remove at index
+        GroceryItem temp =  groceryList.remove(2);
+        System.out.println("Removed "+temp);
+
+        System.out.println(groceryList);
+
 
         /*
         ArrayList is dynamic you don't need to specify the array size for it to work
