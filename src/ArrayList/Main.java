@@ -2,6 +2,7 @@ package ArrayList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 record GroceryItem(String name, String type, int count) {
     GroceryItem(String name) {
@@ -42,6 +43,16 @@ public class Main {
         System.out.println("Removed "+temp);
 
         System.out.println(groceryList);
+
+        // Creating Array from ArrayLists
+        ArrayList<String> stringList =  new ArrayList();
+        stringList.addAll(List.of("jan","feb","mar","apr"));
+
+        String[] stringArr = stringList.toArray(new String[5]); // new element added with default value null
+        System.out.println(Arrays.toString(stringArr));
+
+        String[] stringArr2 = stringList.toArray(new String[0]);
+        System.out.println(Arrays.toString(stringArr2)); // it will still have the exact number of elements
 
 
         /*
