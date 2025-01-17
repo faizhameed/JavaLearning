@@ -58,7 +58,5 @@ public class Main {
         /*
         ArrayList is dynamic you don't need to specify the array size for it to work
          */
-
-
     }
 }
