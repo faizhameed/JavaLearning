@@ -1,6 +1,7 @@
 package LinkedList;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,10 +48,23 @@ public class Main {
         System.out.printf("peek last %s%n",list.peekLast());
     }
 
+//    private static void printItinerary(LinkedList<String> list){
+//        System.out.printf("Trips starts at %s %n",list.getFirst());
+//        for(int i=1;i<list.size();i++){
+//        System.out.printf("next from %s to %s %n",list.get(i-1),list.get(i));
+//        }
+//        System.out.printf("Trip ends at %s",list.getLast());
+//
+//    }
+
     private static void printItinerary(LinkedList<String> list){
         System.out.printf("Trips starts at %s %n",list.getFirst());
-        for(int i=1;i<list.size();i++){
-        System.out.printf("next from %s to %s %n",list.get(i-1),list.get(i));
+        String previousTown =  list.getFirst();
+        ListIterator<String> iterator  = list.listIterator(1);// first items is removed
+        while(iterator.hasNext()){
+            var town  = iterator.next();
+            System.out.printf("next from %s to %s %n",previousTown,town);
+            previousTown = town;
         }
         System.out.printf("Trip ends at %s",list.getLast());
 
