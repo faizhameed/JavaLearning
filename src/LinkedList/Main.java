@@ -20,7 +20,8 @@ public class Main {
 //        System.out.println(placesToVisit);
 //        placesToVisit.removeFirst();
 //        System.out.println(placesToVisit);
-            printElements(placesToVisit);
+//            printElements(placesToVisit);
+    printItinerary(placesToVisit);
     }
     private static void addMoreElements(LinkedList<String> list){
         list.addFirst("USA");
@@ -44,5 +45,14 @@ public class Main {
         System.out.printf("peek first %s%n",list.peekFirst());
         System.out.printf("peek %s%n",list.peek());
         System.out.printf("peek last %s%n",list.peekLast());
+    }
+
+    private static void printItinerary(LinkedList<String> list){
+        System.out.printf("Trips starts at %s %n",list.getFirst());
+        for(int i=1;i<list.size();i++){
+        System.out.printf("next from %s to %s %n",list.get(i-1),list.get(i));
+        }
+        System.out.printf("Trip ends at %s",list.getLast());
+
     }
 }
