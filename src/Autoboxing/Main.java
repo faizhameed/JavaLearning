@@ -11,5 +11,11 @@ public class Main {
         // Now my_int can be unboxed
         int unboxed_int = my_int; // int i = my_int.intValue(); can also be done
         System.out.printf("unboxed_int: %d",unboxed_int);
+        Float my_float = 3.12F;
+        System.out.printf("my float %.2f %n", my_float);
+
+        float unboxed_float = my_float ;
+        System.out.printf("unboxed float: %.2f",unboxed_float);
+
     }
 }
