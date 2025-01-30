@@ -11,18 +11,9 @@ The Bank will have  a name and an ArrayList of customers.
 - The bank class should allow a customer to add a transaction to an existing customer
 - This class should also print a statement, that includes the customer name and the transaction amounts. The method should use unboxing
  */
-public class Main {
-    public static void main(String[] args) {
-        Customer customer_1  =  new Customer("Faiz");
-        Bank sbi =  new Bank("SBI");
-        sbi.addCustomer(customer_1);
-        sbi.addTransactions(customer_1,24.1);
-        System.out.printf("Transactions for customer %s %n",customer_1.getName());
-        System.out.println(sbi.getTransactions(customer_1));
 
-    }
-}
 
+/*
 class Customer {
     private String name;
 
@@ -66,5 +57,48 @@ class Bank {
 
     public void addTransactions(Customer c, Double amt){
         c.addTransaction(amt);
+    }
+}
+*/
+
+record Customer(String name, ArrayList<Double> transactions){
+    public Customer(String name, double initialDeposit){
+    this(name.toUpperCase(),new ArrayList<Double>(500));
+    transactions.add(initialDeposit);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Customer muhammed  =  new Customer("Muhammed Sheikh",1000);
+        System.out.println(muhammed);
+
+    }
+}
+
+class Bank{
+    private String name;
+    private  ArrayList<Customer> customers =  new ArrayList<>(5000);
+
+    public Bank(String name){
+        this.name= name;
+    }
+    private Customer getCustomer(String customerName){
+        for(var customer:customers) {
+        if(customer.name().equalsIgnoreCase(customerName)){
+            return   customer;
+            }
+        }
+        System.out.printf("Customer (%s) wasnot found %n", customerName);
+        return null;
+    }
+    public void addCustomers(String customerName,double initialDeposit){
+        // check if customer is already present
+        if(getCustomer(customerName)==null){
+            // no customer present lets create one
+            Customer customer = new Customer(customerName,initialDeposit);
+            customers.add(customer);
+            System.out.println("New Customer added: "+customerName);
+        }
     }
 }
