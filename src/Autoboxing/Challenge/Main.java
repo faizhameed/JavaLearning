@@ -64,7 +64,10 @@ class Bank {
 record Customer(String name, ArrayList<Double> transactions){
     public Customer(String name, double initialDeposit){
     this(name.toUpperCase(),new ArrayList<Double>(500));
-    transactions.add(initialDeposit);
+   addTransaction(initialDeposit);
+    }
+    public void addTransaction(double amt){
+        transactions.add(amt);
     }
 }
 
@@ -72,6 +75,11 @@ public class Main {
     public static void main(String[] args) {
         Customer muhammed  =  new Customer("Muhammed Sheikh",1000);
         System.out.println(muhammed);
+        Bank bank  = new Bank("SBI");
+        String customerName = "Faiz";
+        bank.addCustomers(customerName,550000);
+        System.out.println(bank);
+        bank.addTransaction(customerName,40000);
 
     }
 }
@@ -83,6 +91,15 @@ class Bank{
     public Bank(String name){
         this.name= name;
     }
+
+    @Override
+    public String toString() {
+        return "Bank{" +
+                "name='" + name + '\'' +
+                ", customers=" + customers +
+                '}';
+    }
+
     private Customer getCustomer(String customerName){
         for(var customer:customers) {
         if(customer.name().equalsIgnoreCase(customerName)){
@@ -101,4 +118,16 @@ class Bank{
             System.out.println("New Customer added: "+customerName);
         }
     }
+
+    public void addTransaction(String customerName, double transactionAmt){
+        Customer customer =   getCustomer(customerName);
+        if(customer!=null){
+            customer.addTransaction(transactionAmt);
+            System.out.println("Transactions added for "+ customerName + " amount: "+transactionAmt );
+        }else{
+            System.out.println("No customer found!");
+        }
+    }
+    
+
 }
