@@ -13,53 +13,7 @@ The Bank will have  a name and an ArrayList of customers.
  */
 
 
-/*
-class Customer {
-    private String name;
 
-
-
-    private ArrayList<Double> transactions = new ArrayList<>();
-
-    public Customer(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public ArrayList<Double> getTransactions() {
-        return transactions;
-    }
-    public void addTransaction(Double amount){
-        transactions.add(amount);
-        System.out.println("Transaction added successfully");
-    }
-}
-
-class Bank {
-    private String bankName;
-    private ArrayList<Customer> customers = new ArrayList<>();
-
-    public Bank(String bankName) {
-        this.bankName = bankName;
-    }
-
-    public void addCustomer(Customer customer){
-        customers.add(customer);
-        System.out.printf("Customer %s successfully added %n", customer.getName());
-    }
-
-    public ArrayList<Double> getTransactions(Customer c){
-        return  c.getTransactions();
-    }
-
-    public void addTransactions(Customer c, Double amt){
-        c.addTransaction(amt);
-    }
-}
-*/
 
 record Customer(String name, ArrayList<Double> transactions){
     public Customer(String name, double initialDeposit){
@@ -76,10 +30,14 @@ public class Main {
         Customer muhammed  =  new Customer("Muhammed Sheikh",1000);
         System.out.println(muhammed);
         Bank bank  = new Bank("SBI");
-        String customerName = "Faiz";
+        String customerName = "Faiz Hameed";
         bank.addCustomers(customerName,550000);
         System.out.println(bank);
         bank.addTransaction(customerName,40000);
+        bank.addTransaction(customerName,45000);
+        bank.addTransaction(customerName,-2300);
+        bank.addTransaction(customerName,-12000);
+        bank.printStatement(customerName);
 
     }
 }
@@ -128,6 +86,18 @@ class Bank{
             System.out.println("No customer found!");
         }
     }
-    
+    public void printStatement(String customerName){
+        Customer customer =  getCustomer(customerName);
+        if(customer==null){
+            return;
+        }
+        System.out.println("_".repeat(30));
+        System.out.println("Customer Name: "+customer.name());
+        System.out.println("Transactions:");
+        for (double statementAmt:customer.transactions()){
+            System.out.printf("$%10.2f (%s)%n",statementAmt, statementAmt<0?"debit":"credit");
+        }
+    }
+
 
 }
