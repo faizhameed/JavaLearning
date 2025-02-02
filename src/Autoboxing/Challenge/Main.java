@@ -27,7 +27,8 @@ record Customer(String name, ArrayList<Double> transactions){
 
 public class Main {
     public static void main(String[] args) {
-        Customer muhammed  =  new Customer("Muhammed Sheikh",1000);
+        String name="Muhammed Sheikh";
+        Customer muhammed  =  new Customer(name,1000);
         System.out.println(muhammed);
         Bank bank  = new Bank("SBI");
         String customerName = "Faiz Hameed";
@@ -38,6 +39,13 @@ public class Main {
         bank.addTransaction(customerName,-2300);
         bank.addTransaction(customerName,-12000);
         bank.printStatement(customerName);
+        bank.printStatement(name); // as this is not onboarded to bank as a customer
+        bank.addCustomers(name,90000);
+        bank.addTransaction(name,60000);
+        bank.addTransaction(name,32000);
+        bank.addTransaction(name,-312);
+        bank.addTransaction(name,-67420);
+        bank.printStatement(name);
 
     }
 }
