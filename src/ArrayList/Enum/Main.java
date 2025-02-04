@@ -15,6 +15,9 @@ public class Main {
         MonthInAYear month = getRandomMonth();
         switchMonth(month);
         }
+        for(Topping topping:Topping.values()){
+            System.out.println(topping.name().charAt(0)+topping.name().substring(1).toLowerCase()+" : "+ topping.getPrice());
+        }
     }
 
     public static MonthInAYear getRandomMonth() {
