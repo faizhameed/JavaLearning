@@ -12,4 +12,8 @@ public abstract class Animal {
         this.size = size;
         this.weight = weight;
     }
+    public String getExplicitType(){
+        //This method cannot be overridden
+        return getClass().getSimpleName() + " (" + type + ")";
+    }
 }
