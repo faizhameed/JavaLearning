@@ -19,6 +19,9 @@ public class Main {
 
         for(Animal animal:animals){
             doAnimalStuff(animal);
+            if(animal instanceof Mammal){
+                ((Mammal) animal).shedHair();
+            }
         }
     }
     private static  void doAnimalStuff(Animal animal){
