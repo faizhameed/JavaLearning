@@ -1,14 +1,14 @@
 package Abstraction.Challenge;
 
-public class ProductForSale {
+abstract class ProductForSale {
     String type;
     Double price;
-    String Description;
+    String description;
 
     public ProductForSale(String type, Double price, String description) {
         this.type = type;
         this.price = price;
-        Description = description;
+        this.description = description;
     }
 
     public double getSalesPrice(int quantity) {
@@ -16,6 +16,7 @@ public class ProductForSale {
     }
 
     public void printPricedItem(int quantity) {
-        System.out.printf("%s %3.0f %6.2f %n", type, price, getSalesPrice(quantity));
+        System.out.printf("%2d qty at $%8.2f each, %-15s %-35s %n",quantity,price,type, description);
     }
+    abstract void showDetails();
 }
