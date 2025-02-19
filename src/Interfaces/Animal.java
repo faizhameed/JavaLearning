@@ -1,5 +1,7 @@
 package Interfaces;
 
+import java.util.Date;
+
 enum FlightStages implements Trackable {
     GROUNDED, LAUNCH, CRUISE, DATA_COLLECTION;
 
@@ -9,10 +11,20 @@ enum FlightStages implements Trackable {
             System.out.println("Monitoring" + this);
         }
     }
+
+    public FlightStages getNextStage() {
+        FlightStages[] allStages = values();
+        return allStages[(ordinal() + 1) % allStages.length];
+    }
 }
 
 interface OrbitEarth extends FlightEnabled {
     void achieveOrbit();
+
+    static  void log(String description){
+        var today = new Date();
+        System.out.println(today+ ": "+ description);
+    }
 }
 
 interface FlightEnabled {
@@ -24,10 +36,17 @@ interface FlightEnabled {
     void fly();
 
     void land();
-    default FlightStages transition(FlightStages stage){
-        System.out.println("transition is not implemented on "+ this.getClass().getName());
-        return  null;
-    };
+
+    default FlightStages transition(FlightStages stage) {
+//        System.out.println("transition is not implemented on " + this.getClass().getName());
+//        return null;
+
+        FlightStages nextStage = stage.getNextStage();
+        System.out.println("Transitioning from " + stage + " to " + nextStage);
+        return nextStage;
+    }
+
+    ;
 }
 
 interface Trackable {
