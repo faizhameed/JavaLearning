@@ -1,5 +1,7 @@
 package Interfaces;
 
+import java.util.Date;
+
 enum FlightStages implements Trackable {
     GROUNDED, LAUNCH, CRUISE, DATA_COLLECTION;
 
@@ -9,10 +11,20 @@ enum FlightStages implements Trackable {
             System.out.println("Monitoring" + this);
         }
     }
+
+    public FlightStages getNextStage() {
+        FlightStages[] allStages = values();
+        return allStages[(ordinal() + 1) % allStages.length];
+    }
 }
 
 interface OrbitEarth extends FlightEnabled {
     void achieveOrbit();
+
+    static  void log(String description){
+        var today = new Date();
+        System.out.println(today+ ": "+ description);
+    }
 }
 
 interface FlightEnabled {
@@ -24,10 +36,17 @@ interface FlightEnabled {
     void fly();
 
     void land();
-    default FlightStages transition(FlightStages stage){
-        System.out.println("transition is not implemented on "+ this.getClass().getName());
-        return  null;
-    };
+
+    default FlightStages transition(FlightStages stage) {
+//        System.out.println("transition is not implemented on " + this.getClass().getName());
+//        return null;
+
+        FlightStages nextStage = stage.getNextStage();
+        System.out.println("Transitioning from " + stage + " to " + nextStage);
+        return nextStage;
+    }
+
+    ;
 }
 
 interface Trackable {
@@ -38,17 +57,17 @@ record DragonFly(String name, String type) implements FlightEnabled {
 
     @Override
     public void takeOff() {
-
+        System.out.println("Dragon fly is taking off!");
     }
 
     @Override
     public void fly() {
-
+        System.out.println("Dragon fly is flying!");
     }
 
     @Override
     public void land() {
-
+        System.out.println("Dragon fly sits on a flower or a rock!");
     }
 }
 
@@ -59,17 +78,17 @@ class Satellite implements OrbitEarth {
 
     @Override
     public void takeOff() {
-
+        System.out.println("Satellite has launched!");
     }
 
     @Override
     public void fly() {
-
+        System.out.println("Satellite flies through the space");
     }
 
     @Override
     public void land() {
-
+        System.out.println("Satellite lands successfully on the earth!");
     }
 }
 
