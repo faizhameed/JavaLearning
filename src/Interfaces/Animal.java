@@ -57,17 +57,17 @@ record DragonFly(String name, String type) implements FlightEnabled {
 
     @Override
     public void takeOff() {
-
+        System.out.println("Dragon fly is taking off!");
     }
 
     @Override
     public void fly() {
-
+        System.out.println("Dragon fly is flying!");
     }
 
     @Override
     public void land() {
-
+        System.out.println("Dragon fly sits on a flower or a rock!");
     }
 }
 
@@ -78,17 +78,17 @@ class Satellite implements OrbitEarth {
 
     @Override
     public void takeOff() {
-
+        System.out.println("Satellite has launched!");
     }
 
     @Override
     public void fly() {
-
+        System.out.println("Satellite flies through the space");
     }
 
     @Override
     public void land() {
-
+        System.out.println("Satellite lands successfully on the earth!");
     }
 }
 
