@@ -1,4 +1,4 @@
-package Excercises.Interfaces;
+package Exercises.Interfaces;
 
 enum TYPE {
     ELECTRICAL, WATER, GAS, FIBER_OPTICS

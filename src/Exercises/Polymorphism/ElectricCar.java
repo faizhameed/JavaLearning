@@ -1,4 +1,4 @@
-package Excercises.Polymorphism;
+package Exercises.Polymorphism;
 
 public class ElectricCar extends Car{
     private double avgKmPerCharge;

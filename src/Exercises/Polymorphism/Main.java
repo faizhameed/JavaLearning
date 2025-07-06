@@ -1,4 +1,4 @@
-package Excercises.Polymorphism;
+package Exercises.Polymorphism;
 
 public class Main {
     public static void main(String[] args) {

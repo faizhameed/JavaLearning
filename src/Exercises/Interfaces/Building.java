@@ -1,4 +1,4 @@
-package Excercises.Interfaces;
+package Exercises.Interfaces;
 
 enum UsageType {ENTERTAINMENT, GOVERNMENT, RESIDENTIAL, SPORTS}
 
