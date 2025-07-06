@@ -1,4 +1,4 @@
-package Excercises.Polymorphism2;
+package Exercises.Polymorphism2;
 
 public class Holden extends Car{
     public Holden(int cylinders, String name) {

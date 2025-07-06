@@ -1,4 +1,4 @@
-package Excercises.Composition;
+package Exercises.Composition;
 
 public class Main {
     public static void main(String args[]){

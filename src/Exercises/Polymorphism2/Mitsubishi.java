@@ -1,4 +1,4 @@
-package Excercises.Polymorphism2;
+package Exercises.Polymorphism2;
 
 public class Mitsubishi extends Car {
     public Mitsubishi(int cylinders, String name) {
